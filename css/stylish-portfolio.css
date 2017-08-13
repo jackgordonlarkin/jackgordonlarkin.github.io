@@ -260,3 +260,6 @@ footer {
   bottom: 5px;
   right: 5px;
 }
+a:link {
+    color: white;
+}
