@@ -234,6 +234,16 @@ hr.small {
 
 /* Map */
 
+.jack h2{
+font-size: 6vmin;
+font-weight: 500;
+color: #636363;    
+}
+.jack h3{
+    font-size:4vmin;
+    font-weight: 200;
+    color: #888888
+}
 .map {
     height: 500px;
 }
@@ -260,4 +270,3 @@ footer {
   bottom: 5px;
   right: 5px;
 }
-
