@@ -253,6 +253,9 @@ hr.small {
 footer {
     padding: 100px 0;
 }
+#a:link{
+    color: blue
+}
 
 #to-top {
   display: none;
