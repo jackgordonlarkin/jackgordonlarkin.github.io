@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Postal Plebiscite">
     <meta name="description" content="Same Sex Marriage Postal Plebiscite">
@@ -12,12 +12,33 @@
     <meta name="description" content="122 million dollar postal Plebiscite">
     <meta name="description" content="122 million dollar Plebiscite">
     <meta name="description" content="A better 122 milllion">
-     <meta name="description" content="A better $122000000">
+    <meta name="description" content="A better $122000000">
     <meta name="description" content="A better 122 million dollars">
+    <meta name="description" content="Same Sex Marriage Plebiscite">
+    <meta name="description" content="Turnbull Plebiscite">
+    <meta name="description" content="ABS Plebiscite">
+    <meta name="description" content="Plebiscite Australia">
+    <meta name="description" content="Same Sex Marriage">
+    
     <meta name="title" content="A better 122 million">
     <meta name="title" content="A better $122000000">
     <meta name="title" content="A better 122 million dollars">
     <meta name="author" content="">
+    <!-- *** Snippet Box *** -->
+<table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td>
+<!--Use description meta tag, if non-empty, in place of snippet-->
+    <xsl:choose>
+      <xsl:when test="MT/@N='description' and MT/@V!=''">
+        <xsl:value-of select="MT[@N = 'description']/@V"/>
+      </xsl:when>
+      <xsl:otherwise>
+          <xsl:call-template name="reformat_keyword">
+            <xsl:with-param name="orig_string" select="S"/>
+          </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
 
     <title>A Better $122000000</title>
 
