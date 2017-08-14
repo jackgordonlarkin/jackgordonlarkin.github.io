@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -53,90 +52,15 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <script>
-    list = []        
-    Papa.parse("lol.csv", {
-	download: true,        
-	step: function(row) {
-        
-        list.push.apply(list,row.data[0]);
-        console.log(list)
-  
-	},
-	complete: function() {
-		console.log("All done!");
-       var item = list[Math.floor(Math.random()*list.length)];
-                                    var Body = "Dear Warren, \n\ Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be used in better way perhaps to ";
-                                    var formattedBody = Body + item 
-                                    console.log(formattedBody)
-                                    var a = document.createElement('a');
-                                    var linkText = document.createTextNode("Email Warren");
-                                    a.appendChild(linkText);
-                                    a.title = "Email Warren";
-                                    var mailToLink = "mailto:warren.entsch.mp@aph.gov.au?";
-                                    var mailContent = "Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";
-                                    mailContent += "body=" + encodeURIComponent(formattedBody);
-                                    a.href = mailToLink + mailContent;
-                                    document.getElementById("warren").appendChild(a);
-        
-                                    var item = list[Math.floor(Math.random()*list.length)];
-                                    var Body = "Dear Trevor, \n\ Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";
-                                    var formattedBody = Body + item 
-                                    var a = document.createElement('a');
-                                    var linkText = document.createTextNode("Email Trevor");
-                                    a.appendChild(linkText);
-                                    a.title = "Email Trevor";
-                                    var mailToLink = "mailto:Trevor.Evans.MP@aph.gov.au?";
-                                    var mailContent = "Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";
-                                    mailContent += "body=" + encodeURIComponent(formattedBody);
-                                    a.href = mailToLink + mailContent;
-                                    document.getElementById("trevor").appendChild(a);
-                                    
-                                    var item = list[Math.floor(Math.random()*list.length)];
-                                    var Body = "Dear Tim, \n\ Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";
-                                    var formattedBody = Body + item 
-                                    var a = document.createElement('a');
-                                    var linkText = document.createTextNode("Email Tim");
-                                    a.appendChild(linkText);
-                                    a.title = "Email Tim";
-                                    var mailToLink = "mailto:tim.wilson.mp@aph.gov.au?";
-                                    var mailContent = "Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";
-                                    mailContent += "body=" + encodeURIComponent(formattedBody);
-                                    a.href = mailToLink + mailContent;
-                                    document.getElementById("tim").appendChild(a); 
-                                    var item = list[Math.floor(Math.random()*list.length)];
-                                    var Body = "Dear Trent, \n\ Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";
-                                    var formattedBody = Body + item 
-                                    var a = document.createElement('a');
-                                    var linkText = document.createTextNode("Email Trent");
-                                    a.appendChild(linkText);
-                                    a.title = "Email Trent";
-                                    var mailToLink = "mailto:Trent.Zimmerman.MP@aph.gov.au?";
-                                    var mailContent = "Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";
-                                    mailContent += "body=" + encodeURIComponent(formattedBody);
-                                    a.href = mailToLink + mailContent;
-                                    document.getElementById("trent").appendChild(a); 
-                                    
-                            
-                                        }
-});
-list .splice();            
-            
-        
+list=[];Papa.parse("lol.csv",{download:true,step:function(row){list.push.apply(list,row.data[0]);console.log(list)},complete:function(){console.log("All done!");var item=list[Math.floor(Math.random()*list.length)];var Body="Dear Warren, \n\ Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be used in better way perhaps to ";var formattedBody=Body+item;console.log(formattedBody);var a=document.createElement('a');var linkText=document.createTextNode("Email Warren");a.appendChild(linkText);a.title="Email Warren";var mailToLink="mailto:warren.entsch.mp@aph.gov.au?";var mailContent="Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";mailContent+="body="+encodeURIComponent(formattedBody);a.href=mailToLink+mailContent;document.getElementById("warren").appendChild(a);var item=list[Math.floor(Math.random()*list.length)];var Body="Dear Trevor, \n\ Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";var formattedBody=Body+item;var a=document.createElement('a');var linkText=document.createTextNode("Email Trevor");a.appendChild(linkText);a.title="Email Trevor";var mailToLink="mailto:Trevor.Evans.MP@aph.gov.au?";var mailContent="Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";mailContent+="body="+encodeURIComponent(formattedBody);a.href=mailToLink+mailContent;document.getElementById("trevor").appendChild(a);var item=list[Math.floor(Math.random()*list.length)];var Body="Dear Tim, \n\ Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";var formattedBody=Body+item;var a=document.createElement('a');var linkText=document.createTextNode("Email Tim");a.appendChild(linkText);a.title="Email Tim";var mailToLink="mailto:tim.wilson.mp@aph.gov.au?";var mailContent="Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";mailContent+="body="+encodeURIComponent(formattedBody);a.href=mailToLink+mailContent;document.getElementById("tim").appendChild(a);var item=list[Math.floor(Math.random()*list.length)];var Body="Dear Trent, \n\ Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";var formattedBody=Body+item;var a=document.createElement('a');var linkText=document.createTextNode("Email Trent");a.appendChild(linkText);a.title="Email Trent";var mailToLink="mailto:Trent.Zimmerman.MP@aph.gov.au?";var mailContent="Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";mailContent+="body="+encodeURIComponent(formattedBody);a.href=mailToLink+mailContent;document.getElementById("trent").appendChild(a)}});
         </script>
-
-    
-
 </head>
-
 <body>
 <script>   
 setInterval(function(){
-$('#test').text(list[Math.floor(Math.random() * list.length)]);
-                
+$('#test').text(list[Math.floor(Math.random() * list.length)]);        
 },5000);
        </script>
-
-    <!-- Navigation -->
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -173,42 +97,16 @@ $('#test').text(list[Math.floor(Math.random() * list.length)]);
                 <script type="text/javascript" src="https://www.formlets.com/static/js/iframeResizer.min.js"></script>
 <iframe id="formlets-iframe" src="https://www.formlets.com/forms/QfPdmvcvISaWID1m/?iframe=true" frameborder="0" width="100%"></iframe>
 <script type="text/javascript" src="https://www.formlets.com/static/js/iframe.js"></script> 
-                                      
-                </div>
-    
-         </div>
-          
-        
-        </div>
-        
+</div></div></div>
     </section>
     <section id="form">
         <div class="container">
             <div class="row">
                 <div class ="jack"><div class="col-lg-12 text-center">
                 <h2><b>&ldquo;</b><em>... This is the last term in which the Coalition Party Room can be bound...</em><b>&rdquo;</b></h2><h3> - Tony Abbott, 2015</h3> <br>   
-                </div></div>
-    
-         </div>
-          
-        
+                </div></div></div>
         </div>
-        
     </section>
-    
-                
-                
-    
-    
-          
-    
-        
-    
-    <!-- About -->
-    
-
-    <!-- Services -->
-    <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
     <section id="contact" class="services bg-primary">
         <div class="container">
             <div class="row text-center">
@@ -271,26 +169,11 @@ $('#test').text(list[Math.floor(Math.random() * list.length)]);
                                 <br><br>
                                 <div id = "trent" class="btn btn-light"></div>
                         </div>
-                    <!-- /.row (nested) -->
                 </div>
-                <!-- /.col-lg-10 -->
             </div>
-                <!-- /.col-lg-10 -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container -->
     </section>
-
-   
-
-    <!-- Call to Action -->
-
-
-    <!-- Map -->
-    
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
@@ -309,87 +192,10 @@ $('#test').text(list[Math.floor(Math.random() * list.length)]);
         </div>
         <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
     </footer>
-
-    <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-    <!-- Custom Theme JavaScript -->
     <script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-    //#to-top button appears after scrolling
-    var fixed = false;
-    $(document).scroll(function() {
-        if ($(this).scrollTop() > 250) {
-            if (!fixed) {
-                fixed = true;
-                // $('#to-top').css({position:'fixed', display:'block'});
-                $('#to-top').show("slow", function() {
-                    $('#to-top').css({
-                        position: 'fixed',
-                        display: 'block'
-                    });
-                });
-            }
-        } else {
-            if (fixed) {
-                fixed = false;
-                $('#to-top').hide("slow", function() {
-                    $('#to-top').css({
-                        display: 'none'
-                    });
-                });
-            }
-        }
-    });
-    // Disable Google Maps scrolling
-    // See http://stackoverflow.com/a/25904582/1607849
-    // Disable scroll zooming and bind back the click event
-    var onMapMouseleaveHandler = function(event) {
-        var that = $(this);
-        that.on('click', onMapClickHandler);
-        that.off('mouseleave', onMapMouseleaveHandler);
-        that.find('iframe').css("pointer-events", "none");
-    }
-    var onMapClickHandler = function(event) {
-            var that = $(this);
-            // Disable the click handler until the user leaves the map area
-            that.off('click', onMapClickHandler);
-            // Enable scrolling zoom
-            that.find('iframe').css("pointer-events", "auto");
-            // Handle the mouse leave event
-            that.on('mouseleave', onMapMouseleaveHandler);
-        }
-        // Enable map zooming with mouse scroll when the user clicks the map
-    $('.map').on('click', onMapClickHandler);
+$("#menu-close").click(function(e){e.preventDefault();$("#sidebar-wrapper").toggleClass("active")});$("#menu-toggle").click(function(e){e.preventDefault();$("#sidebar-wrapper").toggleClass("active")});$(function(){$('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function(){if(location.pathname.replace(/^\//,'')==this.pathname.replace(/^\//,'')||location.hostname==this.hostname){var target=$(this.hash);target=target.length?target:$('[name='+this.hash.slice(1)+']');if(target.length){$('html,body').animate({scrollTop:target.offset().top},1000);return false}}})});var fixed=false;$(document).scroll(function(){if($(this).scrollTop()>250){if(!fixed){fixed=true;$('#to-top').show("slow",function(){$('#to-top').css({position:'fixed',display:'block'})})}}else{if(fixed){fixed=false;$('#to-top').hide("slow",function(){$('#to-top').css({display:'none'})})}}});
     </script>
-
 </body>
-
 </html>
