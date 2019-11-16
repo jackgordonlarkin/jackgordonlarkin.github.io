@@ -17,115 +17,194 @@
     <title>How did we vote?</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/stylish-portfolio.css" rel="stylesheet">
-    <link href="jack.css" rel="stylesheet">
     <script src = "papaparse.min.js"></script>
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-    <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg';</script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+    <style>
+
+#map2323 { margin: 5%; width:90%;height: 90% }
+</style>
+    
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
 <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
-    <style>
-    #map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-}
-
-/**
-* Set rules for how the map overlays
-* (information box and legend) will be displayed
-* on the page. */
-.map-overlay {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.8);
-  margin-right: 20px;
-  font-family: Arial, sans-serif;
-  overflow: auto;
-  border-radius: 3px;
-}
-
-#features {
-  top: 0;
-  height: 100px;
-  margin-top: 20px;
-  width: 250px;
-}
-
-#legend {
-  padding: 10px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  line-height: 18px;
-  height: 150px;
-  margin-bottom: 40px;
-  width: 100px;
-}
-
-.legend-key {
-  display: inline-block;
-  border-radius: 20%;
-  width: 10px;
-  height: 10px;
-  margin-right: 5px;
-}
-    </style>
-  
-</head>
-<body>
-
 <style>
 .geocoder {
-position:absolute;
-z-index:1;
+
+z-index:2;
 width:50%;
-left:50%;
-margin-left:-25%;
-top:20px;
+margin: 2%;
+margin-left: 25%;
 }
 .mapboxgl-ctrl-geocoder { min-width:100%; }
 </style>
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>How did we vote?</a>
-            </li>
-            <li>
-                <a href="#top" onclick=$("#menu-close").click();>Home</a>
-            </li>
-            <li>
-                <a href="#map" onclick=$("#menu-close").click();>Map</a>
-            </li>
-            <li>
-                <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
-            </li>
-        </ul>
-    </nav>
+</head>
+<body>
+    
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1>How did              Vote</h1>   
-        
+            <h1>How did <div id='geocoder' class='geocoder'></div> Vote</h1>   
+            <a href="#map2323" class= "btn btn-dark btn-lg"><b>Start</b></a>
         </div>
     </header>
     
-    <div id='map'></div>
-    
-      <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg';
+<div id='menu'>
+<input id='ck316rp6m0pw01cpe0di7yp2d' type='radio' name='rtoggle' value='ck316rp6m0pw01cpe0di7yp2d' checked='checked'>
+<label for='ck316rp6m0pw01cpe0di7yp2d'>TPP</label>
+<input id='ck317ae4d0hjn1cmc1fljngu3' type='radio' name='rtoggle' value='ck317ae4d0hjn1cmc1fljngu3'>
+<label for='ck317ae4d0hjn1cmc1fljngu3'>ALP</label>
+<input id='ck3178d2w0bs91cpp8i2uoigg' type='radio' name='rtoggle' value='ck3178d2w0bs91cpp8i2uoigg'>
+<label for='ck3178d2w0bs91cpp8i2uoigg'>LNP</label>
+<input id='ck317iz4m0hrq1cmc8jd5zl9x' type='radio' name='rtoggle' value='ck317iz4m0hrq1cmc8jd5zl9x'>
+<label for='ck317iz4m0hrq1cmc8jd5zl9x'>GRN</label>
+<input id='ck317gewz1o2s1cqi2p62ll8x' type='radio' name='rtoggle' value='ck317gewz1o2s1cqi2p62ll8x'>
+<label for='ck317gewz1o2s1cqi2p62ll8x'>ON</label>
+<input id='ck317k3md0c3j1cpp2ubke1cu' type='radio' name='rtoggle' value='ck317k3md0c3j1cpp2ubke1cu'>
+<label for='satellite'>UAP</label>
+<input id='ck314v3yo1l6x1cql94rxy18k' type='radio' name='rtoggle' value='ck314v3yo1l6x1cql94rxy18k'>
+<label for='ck314v3yo1l6x1cql94rxy18k'>Others</label>
+</div>
+ <div class='map-overlay' id='features'><h2></h2><div id='pd'><p></p></div></div>
+    <div id='map2323'></div>
+ 
+       <script>
+        mapboxgl.accessToken = "pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg"
     </script>
     <script>
         var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-    </script>
+  container: 'map2323', // container id
+  style: 'mapbox://styles/jackgordonlarkin/ck316rp6m0pw01cpe0di7yp2d' // replace this with your style URL
+            
+});
+var layerList = document.getElementById('menu');
+var inputs = layerList.getElementsByTagName('input');
+ 
+function switchLayer(layer) {
+var layerId = layer.target.id;
+map.setStyle('mapbox://styles/jackgordonlarkin/' + layerId);
+if (layerId=='ck316rp6m0pw01cpe0di7yp2d'){
+    map.on('mousemove', function(e) {
+var states = map.queryRenderedFeatures(e.point, {
+    layers: ['TPP']
+  });
+
+  if (states.length > 0) {
+      document.getElementById('pd').innerHTML = '<p>We estimate that on a Two party preferred basis:</p><h2><strong>'+ states[0].properties.TPP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the coalition</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
+  }
+})}
+if (layerId=="ck317ae4d0hjn1cmc1fljngu3"){
+map.on('mousemove', function(e0) {
+var states = map.queryRenderedFeatures(e0.point, {
+    layers: ['ALP']
+  });
+
+  if (states.length > 0) {
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.ALP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of Labor</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
+  }
+})}
+if (layerId=="ck3178d2w0bs91cpp8i2uoigg"){
+map.on('mousemove', function(e1) {
+var states = map.queryRenderedFeatures(e1.point, {
+    layers: ['LNP']
+  });
+
+  if (states.length > 0) {
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.LNP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the Coalition</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
+  }
+})}
+if (layerId=="ck317iz4m0hrq1cmc8jd5zl9x"){    
+map.on('mousemove', function(e2) {
+var states = map.queryRenderedFeatures(e2.point, {
+    layers: ['GRNSA1']
+  });
+
+  if (states.length > 0) {
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.GRN + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the Greens</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
+  }
+})
+}
+if (layerId=="ck317k3md0c3j1cpp2ubke1cu"){        
+map.on('mousemove', function(e3) {
+var states = map.queryRenderedFeatures(e3.point, {
+    layers: ['PUP']
+  });
+
+  if (states.length > 0) {
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.UAPP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the UAP</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
+  }
+})       
+}
+if(layerId=="ck314v3yo1l6x1cql94rxy18k"){
+map.on('mousemove', function(e4) {
+var states = map.queryRenderedFeatures(e4.point, {
+    layers: ['OTHSA1']
+  });
+  var votes = parseFloat(parseFloat(states[0].properties["IND/OTH"])+parseFloat(states[0].properties["KAP/CA"]),2)   
+  if (states.length > 0) {
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ votes + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of Other candidates</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
+  }
+})   }
+if(layerId=="ck317gewz1o2s1cqi2p62ll8x"){
+    map.on('mousemove', function(e9) {
+var states = map.queryRenderedFeatures(e9.point, {
+    layers: ['ON']
+  });
+
+  if (states.length > 0) {
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.ON + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of One Nation</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
+  }
+})
+}
+}
+        
+    
+
+ 
+for (var i = 0; i < inputs.length; i++) {
+inputs[i].onclick = switchLayer;
+}         
+var geocoder = new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+countries: 'au',
+mapboxgl: mapboxgl
+
+})
+
+ 
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+map.on('mousemove', function(e) {
+var states = map.queryRenderedFeatures(e.point, {
+    layers: ['TPP']
+  });
+
+  if (states.length > 0) {
+      document.getElementById('pd').innerHTML = '<p>We estimate that on a Two party preferred basis:</p><h2><strong>'+ states[0].properties.TPP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the coalition</h3>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
+  }
+})
+
    
+
+</script>
     <footer>
         <div class="container">
             <div class="row">
@@ -146,8 +225,5 @@ top:20px;
     </footer>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script>
-$("#menu-close").click(function(e){e.preventDefault();$("#sidebar-wrapper").toggleClass("active")});$("#menu-toggle").click(function(e){e.preventDefault();$("#sidebar-wrapper").toggleClass("active")});$(function(){$('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function(){if(location.pathname.replace(/^\//,'')==this.pathname.replace(/^\//,'')||location.hostname==this.hostname){var target=$(this.hash);target=target.length?target:$('[name='+this.hash.slice(1)+']');if(target.length){$('html,body').animate({scrollTop:target.offset().top},1000);return false}}})});var fixed=false;$(document).scroll(function(){if($(this).scrollTop()>250){if(!fixed){fixed=true;$('#to-top').show("slow",function(){$('#to-top').css({position:'fixed',display:'block'})})}}else{if(fixed){fixed=false;$('#to-top').hide("slow",function(){$('#to-top').css({display:'none'})})}}});
-    </script>
 </body>
 </html>
