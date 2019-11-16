@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+     
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="icon" href="Ballot.png">
@@ -75,12 +75,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwM
   margin-right: 5px;
 }
     </style>
+  
 </head>
 <body>
-<script>   
-setInterval(function(){$("#test").text(list[Math.floor(Math.random()*list.length)])},4e3);
-       </script>
-    <style>
+
+<style>
 .geocoder {
 position:absolute;
 z-index:1;
@@ -102,7 +101,7 @@ top:20px;
                 <a href="#top" onclick=$("#menu-close").click();>Home</a>
             </li>
             <li>
-                <a href="#form" onclick=$("#menu-close").click();>Map</a>
+                <a href="#map" onclick=$("#menu-close").click();>Map</a>
             </li>
             <li>
                 <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
@@ -111,34 +110,22 @@ top:20px;
     </nav>
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h1 id = test></h1>
-            <br>
-            <a href="#map" class="btn btn-dark btn-lg">How did my community vote?</a>
+            <h1>How did              Vote</h1>   
+        
         </div>
     </header>
-        
     
-<section id= "contact">
     <div id='map'></div>
-    <div id='geocoder' class='geocoder'></div>
+    
+      <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg';
+    </script>
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg';</
         var map = new mapboxgl.Map({
-                container: 'map',
-            style: 'mapbox://styles/jackgordonlarkin/ck316rp6m0pw01cpe0di7yp2d',
-            zoom: 6
-        map.on('load', function() {
-  // the rest of the code will go in here
-});
-var geocoder = new MapboxGeocoder({
-accessToken: mapboxgl.accessToken,
-mapboxgl: mapboxgl
-});
- 
-document.getElementById('geocoder').appendChild(geocoder.onAdd(map))            
-});
-    </script> 
-    </section>
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+    </script>
+   
     <footer>
         <div class="container">
             <div class="row">
