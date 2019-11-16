@@ -40,6 +40,29 @@ margin: 2%;
 margin-left: 25%;
 }
 .mapboxgl-ctrl-geocoder { min-width:100%; }
+    </style>
+    <style>
+.map-overlay {
+  position: absolute;
+  bottom: -5%;
+  right: 5%;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  overflow: auto;
+  border-radius: 3px;
+    line-height: 0em;
+}
+    
+</style>
+    <style>
+#menu {
+position: absolute;
+background: rgba(255, 255, 255, 0.5);
+padding: 5px;
+bottom: -79%;
+right: 67%;
+    width: 22%;
+}
 </style>
 </head>
 <body>
@@ -51,25 +74,27 @@ margin-left: 25%;
         </div>
     </header>
     
-<div id='menu'>
-<input id='ck316rp6m0pw01cpe0di7yp2d' type='radio' name='rtoggle' value='ck316rp6m0pw01cpe0di7yp2d' checked='checked'>
-<label for='ck316rp6m0pw01cpe0di7yp2d'>TPP</label>
-<input id='ck317ae4d0hjn1cmc1fljngu3' type='radio' name='rtoggle' value='ck317ae4d0hjn1cmc1fljngu3'>
-<label for='ck317ae4d0hjn1cmc1fljngu3'>ALP</label>
-<input id='ck3178d2w0bs91cpp8i2uoigg' type='radio' name='rtoggle' value='ck3178d2w0bs91cpp8i2uoigg'>
-<label for='ck3178d2w0bs91cpp8i2uoigg'>LNP</label>
-<input id='ck317iz4m0hrq1cmc8jd5zl9x' type='radio' name='rtoggle' value='ck317iz4m0hrq1cmc8jd5zl9x'>
-<label for='ck317iz4m0hrq1cmc8jd5zl9x'>GRN</label>
-<input id='ck317gewz1o2s1cqi2p62ll8x' type='radio' name='rtoggle' value='ck317gewz1o2s1cqi2p62ll8x'>
-<label for='ck317gewz1o2s1cqi2p62ll8x'>ON</label>
-<input id='ck317k3md0c3j1cpp2ubke1cu' type='radio' name='rtoggle' value='ck317k3md0c3j1cpp2ubke1cu'>
-<label for='satellite'>UAP</label>
-<input id='ck314v3yo1l6x1cql94rxy18k' type='radio' name='rtoggle' value='ck314v3yo1l6x1cql94rxy18k'>
-<label for='ck314v3yo1l6x1cql94rxy18k'>Others</label>
-</div>
- <div class='map-overlay' id='features'><h2></h2><div id='pd'><p></p></div></div>
-    <div id='map2323'></div>
+
  
+    <div id='map2323'></div>
+    <div id='menu'>
+        <b style="margin-right: 1%">Party:  </b>
+<input style="margin-left: 1%" id='ck316rp6m0pw01cpe0di7yp2d' type='radio' name='rtoggle' value='ck316rp6m0pw01cpe0di7yp2d' checked='checked'>
+<label  style="margin-left: 1%" for='ck316rp6m0pw01cpe0di7yp2d'>  TPP</label>
+<input style="margin-left: 1%" id='ck317ae4d0hjn1cmc1fljngu3' type='radio' name='rtoggle' value='ck317ae4d0hjn1cmc1fljngu3'>
+<label style="margin-left: 1%" for='ck317ae4d0hjn1cmc1fljngu3'>  ALP</label>
+<input style="margin-left: 1%" id='ck3178d2w0bs91cpp8i2uoigg' type='radio' name='rtoggle' value='ck3178d2w0bs91cpp8i2uoigg'>
+<label style="margin-left: 1%" for='ck3178d2w0bs91cpp8i2uoigg'>  LNP</label>
+<input style="margin-left: 1%" id='ck317iz4m0hrq1cmc8jd5zl9x' type='radio' name='rtoggle' value='ck317iz4m0hrq1cmc8jd5zl9x'>
+<label style="margin-left: 1%" for='ck317iz4m0hrq1cmc8jd5zl9x'>  GRN</label>
+<input style="margin-left: 1%" id='ck317gewz1o2s1cqi2p62ll8x' type='radio' name='rtoggle' value='ck317gewz1o2s1cqi2p62ll8x'>
+<label  style="margin-left: 1%" for='ck317gewz1o2s1cqi2p62ll8x'>  ON</label>
+<input style="margin-left: 1%" id='ck317k3md0c3j1cpp2ubke1cu' type='radio' name='rtoggle' value='ck317k3md0c3j1cpp2ubke1cu'>
+<label style="margin-left: 1%" for='ck317k3md0c3j1cpp2ubke1cu'>  UAP</label>
+<input style="margin-left: 1%" id='ck314v3yo1l6x1cql94rxy18k' type='radio' name='rtoggle' value='ck314v3yo1l6x1cql94rxy18k'>
+<label style="margin-left: 1%" for='ck314v3yo1l6x1cql94rxy18k'>  Others</label>
+</div>
+ <div class='map-overlay'><h2></h2><div id='pd'><p></p></div></div>
        <script>
         mapboxgl.accessToken = "pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg"
     </script>
@@ -92,7 +117,7 @@ var states = map.queryRenderedFeatures(e.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that on a Two party preferred basis:</p><h2><strong>'+ states[0].properties.TPP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the coalition</h3>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis:</p><h3><strong><b>'+  states[0].properties.TPP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for the Coalition</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -104,7 +129,7 @@ var states = map.queryRenderedFeatures(e0.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.ALP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of Labor</h3>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h3><strong><b>'+  states[0].properties.ALP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for Labor</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -116,7 +141,7 @@ var states = map.queryRenderedFeatures(e1.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.LNP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the Coalition</h3>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h3><strong><b>'+  states[0].properties.LNP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for the Coalition</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -128,7 +153,7 @@ var states = map.queryRenderedFeatures(e2.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.GRN + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the Greens</h3>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h3><strong><b>'+  states[0].properties.GRN + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for the Greens</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -154,7 +179,7 @@ var states = map.queryRenderedFeatures(e4.point, {
   });
   var votes = parseFloat(parseFloat(states[0].properties["IND/OTH"])+parseFloat(states[0].properties["KAP/CA"]),2)   
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ votes + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of Other candidates</h3>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h3><strong><b>'+ votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for Other candidates</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -196,7 +221,7 @@ var states = map.queryRenderedFeatures(e.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that on a Two party preferred basis:</p><h2><strong>'+ states[0].properties.TPP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the coalition</h3>';
+       document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis:</p><h3><strong><b>'+  states[0].properties.TPP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for the Coalition</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
