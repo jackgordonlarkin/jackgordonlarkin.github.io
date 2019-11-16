@@ -44,8 +44,8 @@ margin-left: 25%;
     <style>
 .map-overlay {
   position: absolute;
-  bottom: -5%;
-  right: 5%;
+  top: 96%;
+  left: 5%;
   background: rgba(255, 255, 255, 0.8);
   margin-right: 20px;
   overflow: auto;
@@ -56,12 +56,13 @@ margin-left: 25%;
 </style>
     <style>
 #menu {
-position: absolute;
+position: relative;
 background: rgba(255, 255, 255, 0.5);
-padding: 5px;
-bottom: -79%;
-right: 67%;
-    width: 22%;
+padding: 2px;
+top: 3.5%;
+left: 0;
+width: 422px;
+z-index: 111;
 }
 </style>
 </head>
@@ -76,8 +77,7 @@ right: 67%;
     
 
  
-    <div id='map2323'></div>
-    <div id='menu'>
+    <div id='map2323'><div id='menu'>
         <b style="margin-right: 1%">Party:  </b>
 <input style="margin-left: 1%" id='ck316rp6m0pw01cpe0di7yp2d' type='radio' name='rtoggle' value='ck316rp6m0pw01cpe0di7yp2d' checked='checked'>
 <label  style="margin-left: 1%" for='ck316rp6m0pw01cpe0di7yp2d'>  TPP</label>
@@ -93,7 +93,8 @@ right: 67%;
 <label style="margin-left: 1%" for='ck317k3md0c3j1cpp2ubke1cu'>  UAP</label>
 <input style="margin-left: 1%" id='ck314v3yo1l6x1cql94rxy18k' type='radio' name='rtoggle' value='ck314v3yo1l6x1cql94rxy18k'>
 <label style="margin-left: 1%" for='ck314v3yo1l6x1cql94rxy18k'>  Others</label>
-</div>
+</div></div>
+    
  <div class='map-overlay'><h2></h2><div id='pd'><p></p></div></div>
        <script>
         mapboxgl.accessToken = "pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg"
