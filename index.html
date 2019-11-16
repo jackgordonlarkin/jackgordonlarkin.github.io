@@ -1,66 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-104399230-1', 'auto');
-  ga('send', 'pageview')   
-</script>  
-<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  "url": "http://www.abetter122million.me/",
-  "name": "A Better 122million",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "url": "http://www.abetter122million.me/",
-    "email": "abetter122million@gmail.com",
-    "contactType": "customer service"
-  }
-}
-    </script>
-    <link rel="icon" href="icon.png">
+    
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="icon" href="Ballot.png">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Postal Plebiscite,Same Sex Marriage Postal Plebiscite,
-   Equal Marriage Postal Plebiscite,122 million dollar postal Plebiscite,
-122 million dollar Plebiscite,A better 122 million,A better $122000000,A better 122 million dollars,Same Sex Marriage Plebiscite,Turnbull Plebiscite,ABS Plebiscite,Plebiscite Australia,Same Sex Marriage,Plebiscite,Plebiscite gay marriage,Plebiscite gay marriage australia,Gay Marriage Postal Plebiscite,Same Sex Marriage,Gay Marriage,Equal Marriage,Plebiscite cost,Postal Plebiscite Cost,Gay Plebiscite"> 
-    <meta name="title" content="A better 122 million">
-    <meta name="description" content="A Postal Plebiscite is going to cost $122m, that money could be better spent; on virtually anything, find out what else $122m can get">
+    <meta name="keywords" content="2019 Australian Election"> 
+    <meta name="title" content="How did we vote?">
+    <meta name="description" content="An Incredily detailed series of maps detialing how australia voted, see how your community voted">
     <meta name="author" content= "Jack Larkin">
-    <meta name="og:title" content="A better 122 million">
-    <meta name="og:description" content="A Postal Plebiscite is going to cost $122m, that money could be better spent; on virtually anything, find out what else $122m can get">
-    <title>A Better $122000000</title>
+    <meta name="og:title" content="How did we vote?">
+    <meta name="og:description" content="An Incredily detailed series of maps detialing how australia voted, see how your community voted">
+    <title>How did we vote?</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <link href="jack.css" rel="stylesheet">
     <script src = "papaparse.min.js"></script>
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <script>
-list=[];Papa.parse("lol.csv",{download:true,step:function(row){list.push.apply(list,row.data[0])},complete:function(){var item=list[Math.floor(Math.random()*list.length)];var Body="Dear Warren,\n\Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be used in better way perhaps to ";var formattedBody=Body+item+"\n\Yours,\n\[INSERT YOUR NAME HERE]\n\For even more better ways to waste 122 million visit www.abetter122million.com";var a=document.createElement('a');var linkText=document.createTextNode("Email Warren");a.appendChild(linkText);a.title="Email Warren";var mailToLink="mailto:warren.entsch.mp@aph.gov.au?";var mailContent="Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";mailContent+="body="+encodeURIComponent(formattedBody);a.href=mailToLink+mailContent;document.getElementById("warren").appendChild(a);var item=list[Math.floor(Math.random()*list.length)];var Body="Dear Trevor,\n\Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";var formattedBody=Body+item+"\n\Yours,\n\[INSERT YOUR NAME HERE]\n\For even more better ways to waste 122 million visit www.abetter122million.com    ";var a=document.createElement('a');var linkText=document.createTextNode("Email Trevor");a.appendChild(linkText);a.title="Email Trevor";var mailToLink="mailto:Trevor.Evans.MP@aph.gov.au?";var mailContent="Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";mailContent+="body="+encodeURIComponent(formattedBody);a.href=mailToLink+mailContent;document.getElementById("trevor").appendChild(a);var item=list[Math.floor(Math.random()*list.length)];var Body="Dear Tim,\n\Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";var formattedBody=Body+item+"\n\Yours,\n\[INSERT YOUR NAME HERE]\n\For even more better ways to waste 122 million visit www.abetter122million.com";var a=document.createElement('a');var linkText=document.createTextNode("Email Tim");a.appendChild(linkText);a.title="Email Tim";var mailToLink="mailto:tim.wilson.mp@aph.gov.au?";var mailContent="Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";mailContent+="body="+encodeURIComponent(formattedBody);a.href=mailToLink+mailContent;document.getElementById("tim").appendChild(a);var item=list[Math.floor(Math.random()*list.length)];var Body="Dear Trent,\n\Instead of spending $122 million dollars on a postal plebiscite, support a Conscience Vote and then the money could be better spent perhaps to ";var formattedBody=Body+item+"\n\Yours,\n\[INSERT YOUR NAME HERE]\n\For even more better ways to waste 122 million visit www.abetter122million.com";var a=document.createElement('a');var linkText=document.createTextNode("Email Trent");a.appendChild(linkText);a.title="Email Trent";var mailToLink="mailto:Trent.Zimmerman.MP@aph.gov.au?";var mailContent="Subject=Why%20Bother%20with%20a%20Postal%20Plebiscite&";mailContent+="body="+encodeURIComponent(formattedBody);a.href=mailToLink+mailContent;document.getElementById("trent").appendChild(a)}});
-</script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg';</script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+    <style>
+    #map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/**
+* Set rules for how the map overlays
+* (information box and legend) will be displayed
+* on the page. */
+.map-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  margin-right: 20px;
+  font-family: Arial, sans-serif;
+  overflow: auto;
+  border-radius: 3px;
+}
+
+#features {
+  top: 0;
+  height: 100px;
+  margin-top: 20px;
+  width: 250px;
+}
+
+#legend {
+  padding: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 18px;
+  height: 150px;
+  margin-bottom: 40px;
+  width: 100px;
+}
+
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
+    </style>
 </head>
 <body>
 <script>   
 setInterval(function(){$("#test").text(list[Math.floor(Math.random()*list.length)])},4e3);
        </script>
+    <style>
+.geocoder {
+position:absolute;
+z-index:1;
+width:50%;
+left:50%;
+margin-left:-25%;
+top:20px;
+}
+.mapboxgl-ctrl-geocoder { min-width:100%; }
+</style>
     <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
     <nav id="sidebar-wrapper">
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>A Better $122000000</a>
+                <a href="#top" onclick=$("#menu-close").click();>How did we vote?</a>
             </li>
             <li>
                 <a href="#top" onclick=$("#menu-close").click();>Home</a>
             </li>
             <li>
-                <a href="#form" onclick=$("#menu-close").click();>Submit</a>
+                <a href="#form" onclick=$("#menu-close").click();>Map</a>
             </li>
             <li>
                 <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
@@ -69,103 +111,47 @@ setInterval(function(){$("#test").text(list[Math.floor(Math.random()*list.length
     </nav>
     <header id="top" class="header">
         <div class="text-vertical-center">
-            <h2>Instead of a pointless postal plebiscite, 122 million dollars could:</h2>
             <h1 id = test></h1>
             <br>
-            <a href="#form" class="btn btn-dark btn-lg">Is anything else a $122m could do?</a>
+            <a href="#map" class="btn btn-dark btn-lg">How did my community vote?</a>
         </div>
     </header>
-    <section id="form">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
- <script type="text/javascript" src="https://www.formlets.com/static/js/iframeResizer.min.js"></script><iframe id="formlets-iframe" src="https://www.formlets.com/forms/QfPdmvcvISaWID1m/?iframe=true" frameborder="0" width="100%"></iframe><script type="text/javascript" src="https://www.formlets.com/static/js/iframe.js"></script> 
-</div></div></div>
-    </section>
-    <section id="form">
-        <div class="container">
-            <div class="row">
-                <div class ="jack"><div class="col-lg-12 text-center">
-                <h2><b>&ldquo;</b><em>... This is the last term in which the Coalition Party Room can be bound...</em><b>&rdquo;</b></h2><h3> - Tony Abbott, 2015</h3> <br> 
-                </div></div></div></div>
-    </section>
-    <section id="contact" class="services bg-primary">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                    <h2>These Liberal MPs can make a difference, <b>Contact Them</b></h2>
-                    <hr class="small">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <div class = "hidden-xs">
-                                <img class="img-circle" src="EntschWarren.png" width = "160px">
-                                </div>
-                                <h4>
-                                    <strong>Warren Entsch</strong>
-                                </h4>
-                                <i class="fa fa-phone fa-fw"></i><font color ="white"> (02) 6277 4803</font><br>
-                                <i class="fa fa-phone fa-fw"></i><font color ="white"> (07) 4051 2220</font>
-                                <br><br>
-                                <div id = "warren" class="btn btn-light"></div></div></div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <div class = "hidden-xs">
-                                <img class="img-circle" src="EvansTrevor.png" width = "160px">
-                                </div>
-                                    <h4>
-                                    <strong>Trevor Evans</strong>
-                                </h4>
-                                <i class="fa fa-phone fa-fw"></i><font color ="white"> (02) 6277 2008</font><br>
-                                <i class="fa fa-phone fa-fw"></i><font color ="white"> (07) 3252 9222</font>
-                                <br><br>
-                                <div id = "trevor" class="btn btn-light"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                        <div class="service-item">
-                                <div class = "hidden-xs">
-                                <img class="img-circle" src="WilsonTim.png" width = "160px">
-                                </div>
-                                    <h4>
-                                    <strong>Tim Wilson</strong>
-                                </h4>
-                            <i class="fa fa-phone fa-fw"></i><font color ="white"> (02) 6277 2392</font><br>
-                            <i class="fa fa-phone fa-fw"></i><font color ="white"> (03) 9557 4644</font>
-                                <br><br>
-                                <div id = "tim" class="btn btn-light"></div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class = "hidden-xs">
-                                <img class="img-circle" src="ZimmermanTrent.png" width = "160px">
-                                </div>
-                                    <h4>
-                                    <strong>Trent Zimmerman</strong>
-                                </h4>
-                            <i class="fa fa-phone fa-fw"></i><font color ="white"> (02) 6277 4744</font><br>
-                            <i class="fa fa-phone fa-fw"></i><font color ="white">(02) 9929 9822</font>
-                                <br><br>
-                                <div id = "trent" class="btn btn-light"></div>
-                        </div>
-                </div>
-            </div>
-            </div>
-        </div>
+        
+    
+<section id= "contact">
+    <div id='map'></div>
+    <div id='geocoder' class='geocoder'></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg';</
+        var map = new mapboxgl.Map({
+                container: 'map',
+            style: 'mapbox://styles/jackgordonlarkin/ck316rp6m0pw01cpe0di7yp2d',
+            zoom: 6
+        map.on('load', function() {
+  // the rest of the code will go in here
+});
+var geocoder = new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+});
+ 
+document.getElementById('geocoder').appendChild(geocoder.onAdd(map))            
+});
+    </script> 
     </section>
     <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h4><strong>ABetter122million</strong>
+                    <h4><strong>HowdidweVote?</strong>
                     </h4>
                     <ul class="list-unstyled">
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:abetter122million@gmail.com">abetter122million@gmail.com</a>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:jackgordonlarkin@gmail.com">jackgordonlarkin@gmail.com</a>
                         </li>
                     </ul>
                     <br>
                     <hr class="small">
-                    <p class="text-muted">Copyright &copy;Abetter122million 2017</p>
+                    <p class="text-muted">Copyright &copy;Jack Larkin</p>
                 </div>
             </div>
         </div>
