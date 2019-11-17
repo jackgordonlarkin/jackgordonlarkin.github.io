@@ -22,8 +22,13 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <style>
 
-#map2323 { margin: 5%; width:90%;height: 90% }
+#map2323 { margin:5%; width:90%;height: 90% }
 </style>
+    <style>.mapboxgl-ctrl-top-right {
+    top: 0;
+    right: 0;
+        margin-top: 3%;
+}</style>
     
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
@@ -67,7 +72,24 @@ z-index: 111;
 </style>
 </head>
 <body>
-    
+      <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$("#menu-close").click();>How did we vote?</a>
+            </li>
+            <li>
+                <a href="#top" onclick=$("#menu-close").click();>Home</a>
+            </li>
+            <li>
+                <a href="#map2323" onclick=$("#menu-close").click();>Map</a>
+            </li>
+            <li>
+                <a href="#contact" onclick=$("#menu-close").click();><b>Contact</b></a>
+            </li>
+        </ul>
+    </nav>
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>How did <div id='geocoder' class='geocoder'></div> Vote</h1>   
@@ -105,6 +127,16 @@ z-index: 111;
   style: 'mapbox://styles/jackgordonlarkin/ck316rp6m0pw01cpe0di7yp2d' // replace this with your style URL
             
 });
+map.addControl(new mapboxgl.GeolocateControl({
+positionOptions: {
+enableHighAccuracy: false
+},
+trackUserLocation: true
+}));
+map.addControl(new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+mapboxgl: mapboxgl
+}));
 var layerList = document.getElementById('menu');
 var inputs = layerList.getElementsByTagName('input');
  
@@ -118,7 +150,7 @@ var states = map.queryRenderedFeatures(e.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis:</p><h3><strong><b>'+  states[0].properties.TPP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for the Coalition</h4>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.TPP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for the Coalition</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -130,7 +162,7 @@ var states = map.queryRenderedFeatures(e0.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h3><strong><b>'+  states[0].properties.ALP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for Labor</h4>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.ALP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for Labor</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -142,7 +174,7 @@ var states = map.queryRenderedFeatures(e1.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h3><strong><b>'+  states[0].properties.LNP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for the Coalition</h4>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.LNP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for the Coalition</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -154,7 +186,7 @@ var states = map.queryRenderedFeatures(e2.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h3><strong><b>'+  states[0].properties.GRN + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for the Greens</h4>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.GRN + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for the Greens</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -167,7 +199,7 @@ var states = map.queryRenderedFeatures(e3.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.UAPP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of the UAP</h3>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h2><strong>'+ states[0].properties.UAPP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.SA2 + ' in favour of the UAP</h3>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -180,7 +212,7 @@ var states = map.queryRenderedFeatures(e4.point, {
   });
   var votes = parseFloat(parseFloat(states[0].properties["IND/OTH"])+parseFloat(states[0].properties["KAP/CA"]),2)   
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h3><strong><b>'+ votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for Other candidates</h4>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+ votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for Other candidates</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -192,7 +224,7 @@ var states = map.queryRenderedFeatures(e9.point, {
   });
 
   if (states.length > 0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that :</p><h2><strong>'+ states[0].properties.ON + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.div_nm + ' in favour of One Nation</h3>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h2><strong>'+ states[0].properties.ON + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.SA2 + ' in favour of One Nation</h3>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -222,7 +254,7 @@ var states = map.queryRenderedFeatures(e.point, {
   });
 
   if (states.length > 0) {
-       document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis:</p><h3><strong><b>'+  states[0].properties.TPP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.div_nm + ' were for the Coalition</h4>';
+       document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.TPP + '% </b></strong> <i style="font-weight:50"> of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for the Coalition</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere</p>';
   }
@@ -232,7 +264,7 @@ var states = map.queryRenderedFeatures(e.point, {
 
 </script>
     <footer>
-        <div class="container">
+        <div class="container" id="contact">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
                     <h4><strong>HowdidweVote?</strong>
@@ -251,5 +283,8 @@ var states = map.queryRenderedFeatures(e.point, {
     </footer>
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+     <script>
+$("#menu-close").click(function(e){e.preventDefault();$("#sidebar-wrapper").toggleClass("active")});$("#menu-toggle").click(function(e){e.preventDefault();$("#sidebar-wrapper").toggleClass("active")});$(function(){$('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function(){if(location.pathname.replace(/^\//,'')==this.pathname.replace(/^\//,'')||location.hostname==this.hostname){var target=$(this.hash);target=target.length?target:$('[name='+this.hash.slice(1)+']');if(target.length){$('html,body').animate({scrollTop:target.offset().top},1000);return false}}})});var fixed=false;$(document).scroll(function(){if($(this).scrollTop()>250){if(!fixed){fixed=true;$('#to-top').show("slow",function(){$('#to-top').css({position:'fixed',display:'block'})})}}else{if(fixed){fixed=false;$('#to-top').hide("slow",function(){$('#to-top').css({display:'none'})})}}});
+    </script>
 </body>
 </html>
