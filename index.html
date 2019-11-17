@@ -51,6 +51,7 @@ width:50%;
 margin: 2%;
 margin-left: 25%;
 }
+
 .mapboxgl-ctrl-geocoder { min-width:100%; }
     </style>
     <style>
@@ -117,6 +118,12 @@ setInterval(changeBackground, 4000);
    
 
   </script> 
+    <script type="text/javascript"> 
+    var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+    if (mobile) { 
+        $('.mapboxgl-ctrl-geocoder').css('display', 'none'); // OR you can use $('.navWrap').hide();
+    } 
+</script> 
 </head>
 <body>
       <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
