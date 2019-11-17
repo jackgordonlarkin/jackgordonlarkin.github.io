@@ -203,7 +203,7 @@ var states = map.queryRenderedFeatures(e.point, {
       var votes = states[0].properties.TPP
       var parties = " the Coalition "
       if (votes<50){
-          votes = 100-states[0].properties.TPP
+          votes = parseFloat(100-states[0].properties.TPP,2)
           parties = " Labor "
       }
       document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for'+parties+'</h4>';
@@ -313,7 +313,7 @@ var states = map.queryRenderedFeatures(e.point, {
       var votes = states[0].properties.TPP
       var parties = " the Coalition "
       if (votes<50){
-          votes = 100-states[0].properties.TPP
+          votes = parseFloat(100-states[0].properties.TPP,2)
           parties = " Labor "
       }
       document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for'+parties+'</h4>';
