@@ -52,7 +52,7 @@ margin: 2%;
 margin-left: 25%;
 }
 .mapboxgl-ctrl-geocoder { min-width:100%; }
-.mapboxgl-ctrl-bottom-right{margin-bottom: -29px}
+.mapboxgl-ctrl-bottom-left{margin-bottom: -37px}
     </style>
     <style>
 .map-overlay {
@@ -210,7 +210,7 @@ map.addControl(new mapboxgl.FullscreenControl());
 map.addControl(new MapboxGeocoder({
 accessToken: mapboxgl.accessToken,
 mapboxgl: mapboxgl
-}),'bottom-right');  
+}),'bottom-left');  
 var layerList = document.getElementById('menu');
 var inputs = layerList.getElementsByTagName('input');
  
