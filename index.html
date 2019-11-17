@@ -70,6 +70,20 @@ width: 422px;
 z-index: 111;
 }
 </style>
+    <script>var imageIndex = 0;
+var imagesArray = [
+    "img/bg1.png",
+    "img/bg2.png"
+];
+
+function changeBackground(){
+    var index = imageIndex++ % imagesArray.length;
+    $("top").css("background","url('"+ imagesArray[index] +"')");      
+}
+
+$(document).ready(function() {
+  setInterval(changeBackground, 500);
+});</script>
 </head>
 <body>
       <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
