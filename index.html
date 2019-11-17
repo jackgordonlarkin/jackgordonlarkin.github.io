@@ -255,7 +255,7 @@ var states = map.queryRenderedFeatures(e3.point, {
   });
 
   if (states.length > 0 && parseInt(states[0].properties.n_votes)>0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h2><strong>'+ states[0].properties.UAPP + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.SA2 + ' in favour of the UAP</h3>';
+      document.getElementById('pd').innerHTML = document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.UAPP + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for the UAP</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere with people!</p>';
   }
@@ -280,7 +280,7 @@ var states = map.queryRenderedFeatures(e9.point, {
   });
 
   if (states.length > 0 && parseInt(states[0].properties.n_votes)>0) {
-      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h2><strong>'+ states[0].properties.ON + '% </strong></h2><h3><strong> of ' + states[0].properties.n_votes + '</strong> primary votes cast in this area of '+ states[0].properties.SA2 + ' in favour of One Nation</h3>';
+      ddocument.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.ON + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for One Nation</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere with people!</p>';
   }
