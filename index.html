@@ -304,7 +304,7 @@ var states = map.queryRenderedFeatures(e9.point, {
   });
 
   if (states.length > 0 && parseInt(states[0].properties.n_votes)>0) {
-      ddocument.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.ON + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for One Nation</h4>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  states[0].properties.ON + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for One Nation</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere with people!</p>';
   }
