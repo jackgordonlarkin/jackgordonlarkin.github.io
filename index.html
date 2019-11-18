@@ -114,16 +114,15 @@ setInterval(changeBackground, 4000);
      $('#sel1').change(function() {
     $('input:radio[name=rtoggle][value='+$(this).val()+']').click();
 });
+     var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+    if (mobile) { 
+        $('.mapboxgl-ctrl-bottom-left').css('display', 'none'); // OR you can use $('.navWrap').hide();
+    } 
 });
    
 
   </script> 
-    <script type="text/javascript"> 
-    var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
-    if (mobile) { 
-        $('.mapboxgl-ctrl-bottom-left').css('display', 'none'); // OR you can use $('.navWrap').hide();
-    } 
-</script> 
+  
 </head>
 <body>
       <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
