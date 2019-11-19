@@ -154,6 +154,7 @@ setInterval(changeBackground, 4000);
     <label for="sel1"><h4><b>Select a Party to view:</b></h4></label>
     <select class="form-control" id="sel1">
     <option value='1'><h5>Two Party Preferred</h5></option>
+            <option value='8'><h5>Swing (TPP)</h5></option>
     <option value='2'>Labor</option>
     <option value='3'>Coalition</option>
     <option value="4">Greens</option>
@@ -180,6 +181,8 @@ setInterval(changeBackground, 4000);
 <label style="margin-left: 1%" for='ck317k3md0c3j1cpp2ubke1cu'>  UAP</label>
 <input style="margin-left: 1%" id='ck314v3yo1l6x1cql94rxy18k' type='radio' name='rtoggle' value='7'>
 <label style="margin-left: 1%" for='ck314v3yo1l6x1cql94rxy18k'>  Others</label>
+        <input style="margin-left: 1%" id='ck35cs5yc0hwf1cmb3w636pjp' type='radio' name='rtoggle' value='8'>
+<label style="margin-left: 1%" for='ck35cs5yc0hwf1cmb3w636pjp'>  Swing(TPP)</label>
 </div></div>
     
  <div class='map-overlay'><h2></h2><div id='pd'><p></p></div></div>
@@ -218,8 +221,8 @@ function switchLayer(layer) {
 var layerId = layer.target.id;
 map.setStyle('mapbox://styles/jackgordonlarkin/' + layerId);
 if (layerId=='ck316rp6m0pw01cpe0di7yp2d'){
-    map.on('mousemove', function(e) {
-var states = map.queryRenderedFeatures(e.point, {
+    map.on('mousemove', function(e12) {
+var states = map.queryRenderedFeatures(e12.point, {
     layers: ['TPP']
   });
 
@@ -231,6 +234,24 @@ var states = map.queryRenderedFeatures(e.point, {
           parties = " Labor "
       }
       document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for'+parties+'</h4>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere with people!</p>';
+  }
+})}
+if (layerId=='ck35cs5yc0hwf1cmb3w636pjp'){
+    map.on('mousemove', function(e11) {
+var states = map.queryRenderedFeatures(e11.point, {
+    layers: ['Swing']
+  });
+
+  if (states.length > 0 && parseInt(states[0].properties.n_votes)>0) {
+      var votes = states[0].properties.Swing
+      var parties = " the Coalition "
+      if (votes<0){
+          votes = parseFloat(0-states[0].properties.Swing,2)
+          parties = " Labor "
+      }
+      document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' swung towards'+parties+'</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere with people!</p>';
   }
@@ -310,6 +331,7 @@ var states = map.queryRenderedFeatures(e9.point, {
   }
 })
 }
+
 }
         
     
