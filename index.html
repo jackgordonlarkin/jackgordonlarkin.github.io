@@ -159,6 +159,7 @@ setInterval(changeBackground, 4000);
     <select class="form-control" id="sel1">
     <option value='1'><h5>Two Party Preferred</h5></option>
             <option value='8'><h5>Swing (TPP)</h5></option>
+        <option value='10'><h5>Two Candidate Preferred</h5></option>
     <option value='2'>Labor</option>
     <option value='3'>Coalition</option>
     <option value="4">Greens</option>
@@ -189,7 +190,10 @@ setInterval(changeBackground, 4000);
         <input style="margin-left: 1%" id='ck35cs5yc0hwf1cmb3w636pjp' type='radio' name='rtoggle' value='8'>
 <label style="margin-left: 1%" for='ck35cs5yc0hwf1cmb3w636pjp'>  Swing(TPP)</label>
                 <input style="margin-left: 1%" id='ck35klh3v0u151cmlmbmxugly' type='radio' name='rtoggle' value='9'>
-<label style="margin-left: 1%" for='ck35klh3v0u151cmlmbmxugly'>  Informally</label>
+<label style="margin-left: 1%" for='ck35klh3v0u151cmlmbmxugly'>  Informal</label>
+<input style="margin-left: 1%" id='ck39nj68p05od1ck0zgheusde' type='radio' name='rtoggle' value='10'>
+<label style="margin-left: 1%" for='ck39nj68p05od1ck0zgheusde'>  TCP</label>
+        
         
 </div></div>
     
@@ -228,7 +232,113 @@ var inputs = layerList.getElementsByTagName('input');
 function switchLayer(layer) {
 var layerId = layer.target.id;
 map.setStyle('mapbox://styles/jackgordonlarkin/' + layerId);
-if (layerId=='ck316rp6m0pw01cpe0di7yp2d'){
+if (layerId=='ck39nj68p05od1ck0zgheusde'){
+    map.on('mousemove', function(e66) {
+var states = map.queryRenderedFeatures(e66.point, {
+    layers: ['TCP']
+  });
+
+  if (states.length > 0 && parseInt(states[0].properties.n_votes)>0) {
+      var votes = states[0].properties.TCP
+      var winner = states[0].properties["Party 1"]
+      if (winner=="LP"){
+          winner = "the Liberals"
+      }
+      else if (winner =="NP"){
+          winner ="the Nationals"
+      }
+      else if (winner =="LNP"){
+          winner ="the LNP"
+      }
+      else if (winner =="CLP"){
+          winner ="the Country Liberals"
+      }
+      else if(winner=="ALP"){
+          winner ="Labor"
+      }
+      else if (winner =="GRN"){
+          winner ="The Greens"
+      }
+      else if (winner =="KAP"){
+          winner = "Bob Katter"
+      }
+      else if (winner =="XEN"){
+          winner="Rebbecca Sharkie"
+      }
+      else if(states[0].properties.div_nm == "Wentworth"){
+          winner="Kerryn Phelps"
+      }
+      else if(states[0].properties.div_nm == "Warringah"){
+          winner="Zali Steggall"
+      }
+      else if(states[0].properties.div_nm == "Clark"){
+          winner="Andrew Wilkie"
+      }
+      else if(states[0].properties.div_nm == "Farrer"){
+          winner ="Kevin Mack"
+      }
+        else if(states[0].properties.div_nm == "Cowper"){
+          winner ="Rob Oakeshott"
+      }
+        else if(states[0].properties.div_nm == "New England"){
+          winner ="Adam Blakester"
+      }
+      else if(states[0].properties.div_nm == "Indi"){
+          winner ="Helen Haines"
+      }
+        
+      var loser = states[0].properties["Other Party"]
+      if (loser=="LP"){
+          loser = "the Liberals"
+      }
+      else if (loser =="NP"){
+          loser ="the Nationals"
+      }
+      else if (loser =="LNP"){
+          loser ="the LNP"
+      }
+      else if (loser =="CLP"){
+          loser ="the Country Liberals"
+      }
+      else if(loser=="ALP"){
+          loser ="Labor"
+      }
+      else if (loser =="GRN"){
+          loser ="The Greens"
+      }
+      else if (loser =="KAP"){
+          loser = "Bob Katter"
+      }
+        else if(loser == "ON"){
+          loser ="One Nation"
+      }
+      else if(states[0].properties.div_nm == "Wentworth"){
+          loser="Kerryn Phelps"
+      }
+      else if(states[0].properties.div_nm == "Warringah"){
+          loser="Zali Steggall"
+      }
+      else if(states[0].properties.div_nm == "Clark"){
+          loser="Andrew Wilkie"
+      }
+      else if(states[0].properties.div_nm == "Farrer"){
+          loser ="Kevin Mack"
+      }
+        else if(states[0].properties.div_nm == "Cowper"){
+          loser ="Rob Oakeshott"
+      }
+        else if(states[0].properties.div_nm == "New England"){
+          loser ="Adam Blakester"
+      }
+      else if(states[0].properties.div_nm == "Indi"){
+          loser ="Helen Haines"
+      }
+      document.getElementById('pd').innerHTML = '<p>We estimate that on a TCP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for '+winner+' against '+loser+states[0].properties.SA1_id+'</h4>';
+  } else {
+    document.getElementById('pd').innerHTML = '<p>Hover somewhere with people!</p>';
+  }
+})}
+    if (layerId=='ck316rp6m0pw01cpe0di7yp2d'){
     map.on('mousemove', function(e12) {
 var states = map.queryRenderedFeatures(e12.point, {
     layers: ['TPP']
@@ -246,6 +356,7 @@ var states = map.queryRenderedFeatures(e12.point, {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere with people!</p>';
   }
 })}
+
 if (layerId=='ck35cs5yc0hwf1cmb3w636pjp'){
     map.on('mousemove', function(e11) {
 var states = map.queryRenderedFeatures(e11.point, {
