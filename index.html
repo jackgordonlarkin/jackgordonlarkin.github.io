@@ -333,7 +333,7 @@ var states = map.queryRenderedFeatures(e66.point, {
       else if(states[0].properties.div_nm == "Indi"){
           loser ="Helen Haines"
       }
-      document.getElementById('pd').innerHTML = '<p>We estimate that on a TCP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for '+winner+' against '+loser+states[0].properties.SA1_id+'</h4>';
+      document.getElementById('pd').innerHTML = '<p>We estimate that on a TCP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for '+winner+' against '+loser+'</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover somewhere with people!</p>';
   }
