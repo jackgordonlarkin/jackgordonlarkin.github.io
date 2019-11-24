@@ -108,11 +108,12 @@ var imagesArray = [
     "bg19.png",
     "bg20.png",
     "bg21.png",
-    "bg22.png"
+    "bg22.png",
+    "bg23.png"
 ];
 
 function changeBackground(){
-    $("#top").css("background-image" , "url("+ imagesArray[parseInt(Math.random()*22)] +")");      
+    $("#top").css("background-image" , "url("+ imagesArray[parseInt(Math.random()*23)] +")");      
 };
 
 
@@ -209,10 +210,14 @@ setInterval(changeBackground, 4000);
         var map = new mapboxgl.Map({
             container: 'map2323', // container id
             style: 'mapbox://styles/jackgordonlarkin/ck316rp6m0pw01cpe0di7yp2d', // replace this with your style URL
-            maxZoom: 14,
-            minZoom: 3,
+            maxZoom: 13.3,
+            minZoom: 3.6,
             zoom:6,
-            center:[133.7751, -25.2744]
+            center:[133.7751, -25.2744],
+            maxbounds:[
+				[96.8,-43.7], // Southwest coordinates
+				[168.0,-9.2]  // Northeast coordinates
+				]
             
             
 });
