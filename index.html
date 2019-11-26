@@ -125,9 +125,12 @@ setInterval(changeBackground, 4000);
      var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
     if (mobile) { 
         $('.mapboxgl-ctrl-bottom-left').css('display', 'none');
-        $('#map2323').css('margin', '0%');
-        $('#map2323').css('width', '100%');// OR you can use $('.navWrap').hide();
-        $('#over').css('left', '0%');
+        $('#map2323').css('margin', '1%');
+        $('#map2323').css('width', '98%');// OR you can use $('.navWrap').hide();
+        $('#over').css('left', '1%');
+        $('.geocoder').css('width', '50%');
+        $('#menu2').css('margin-left','1%')
+        $('#menu2').css('margin-right','1%')
     } 
       else{
           $('#over').css('left', '5%');
