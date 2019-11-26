@@ -35,7 +35,7 @@ gtag('set', {'user_id': 'USER_ID'}); // Set the user ID using signed-in user_id.
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <style>
 
-#map2323 { margin:5%; width:90%;height: 98% ; font: inherit;font-style: inherit;font-family: inherit;}
+#map2323 { margin:5%; width:90%;height: 99% ; font: inherit;font-style: inherit;font-family: inherit;}
 </style>
     
     
@@ -59,13 +59,10 @@ margin-left:30%;
     </style>
     <style>
 .map-overlay {
-  position: relative;
-  top: 0%;
-  left: 0%;
+  position: absolute;
+  
   background: rgba(255, 255, 255, .9);
-  margin-right: 20px;
-  border-radius: 3px;
-    line-height: 0em;
+    z-index: 100000
 }
     
 </style>
@@ -128,10 +125,19 @@ setInterval(changeBackground, 4000);
      var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
     if (mobile) { 
         $('.mapboxgl-ctrl-bottom-left').css('display', 'none');
-        $('map2323').css('margin', '1%');
-        $('map2323').css('width', '98%');// OR you can use $('.navWrap').hide();
+        $('#map2323').css('margin', '0%');
+        $('#map2323').css('width', '100%');// OR you can use $('.navWrap').hide();
+        $('#over').css('left', '0%');
     } 
-});
+      else{
+          $('#over').css('left', '5%');
+      }
+        var position = $(".mapboxgl-canvas").position();
+        console.log(position)
+        $('#over').css('top', toString(position.top)+'px');
+  });
+    
+
    
 
   </script> 
@@ -178,8 +184,8 @@ setInterval(changeBackground, 4000);
   </select>
 </div></div>
 
- 
-    <div id='map2323'> <div class='map-overlay'><h2></h2><div id='pd'><p></p></div></div><div id='menu' style="display: none">
+ <div class='map-overlay' id="over"><h2></h2><div id='pd'><p></p></div></div>
+    <div id='map2323'> <div id='menu' style="display: none">
         <b style="margin-right: 1%">Party:  </b>
 <input style="margin-left: 1%" id='ck316rp6m0pw01cpe0di7yp2d' type='radio' name='rtoggle' value='1' checked>
 <label  style="margin-left: 1%" for='ck316rp6m0pw01cpe0di7yp2d'>  TPP</label>
