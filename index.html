@@ -121,14 +121,18 @@ setInterval(changeBackground, 4000);
   $( document ).ready(function() {
      $('#sel1').change(function() {
     $('input:radio[name=rtoggle][value='+$(this).val()+']').click();
-});
+}); 
      var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+      var position = $("#map2323").position();
+        var info = parseFloat(position.top)
     if (mobile) { 
         $('.mapboxgl-ctrl-bottom-left').css('display', 'none');
         $('#map2323').css('margin', '1%');
         $('#map2323').css('width', '98%');// OR you can use $('.navWrap').hide();
         $('#over').css('left', '1%');
         $('#over').css('width', '98%');
+        
+        $('#over').css('top', info*1.02);
         $('.geocoder').css('width', '70%');
          $('.geocoder').css('margin-left', '15%');
         $('#menu2').css('margin-left','1%')
@@ -137,12 +141,12 @@ setInterval(changeBackground, 4000);
     } 
       else{
           $('#over').css('left', '5%');
+           $('#over').css('top', info*1.1);
+        console.log($("#over").position())
+
       }
-        var position = $(".mapboxgl-canvas").position();
-        console.log(position)
-        $('#over').css('top', toString(position.top)+'px');
-  });
-    
+       
+     });
 
    
 
