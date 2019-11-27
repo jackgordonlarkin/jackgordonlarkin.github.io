@@ -141,14 +141,30 @@ setInterval(changeBackground, 4000);
     } 
       else{
           $('#over').css('left', '5%');
-           $('#over').css('top', info*1.1);
-        console.log($("#over").position())
+           $('#over').css('top', info*1.08);
+  
 
       }
        
      });
+$(window).on('resize', function(){
+        var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
 
-   
+      var position = $("#map2323").position();
+        var info = parseFloat(position.top)
+    if (mobile) {
+      
+        $('#over').css('top', info*1.02);
+      
+        
+    } 
+      else{
+         $('#over').css('top', info*1.08);
+     
+
+      } 
+});
+
 
   </script> 
   
