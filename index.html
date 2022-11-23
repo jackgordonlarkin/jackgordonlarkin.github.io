@@ -583,17 +583,150 @@ document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
 
 map.on('mousemove', function(e) {
 var states = map.queryRenderedFeatures(e.point, {
-    layers: ['TPP']
+    layers: ['TCP']
   });
 
   if (states.length > 0 && parseInt(states[0].properties.n_votes)>0) {
-      var votes = states[0].properties.TPP
-      var parties = " the Coalition "
-      if (votes<50){
-          votes = parseFloat(100-states[0].properties.TPP,2)
-          parties = " Labor "
+      var votes = states[0].properties.TCP
+      var winner = states[0].properties["Party 1"]
+      if (winner=="LP"){
+          winner = "the Liberals"
       }
-      document.getElementById('pd').innerHTML = '<p>We estimate that on a TPP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for'+parties+'</h4>';
+      else if (winner =="NP"){
+          winner ="the Nationals"
+      }
+      else if (winner =="LNP"){
+          winner ="the LNP"
+      }
+      else if (winner =="CLP"){
+          winner ="the Country Liberals"
+      }
+      else if(winner=="ALP"){
+          winner ="Labor"
+      }
+      else if (winner =="GRN"){
+          winner ="The Greens"
+      }
+      else if (winner =="KAP"){
+          winner = "Bob Katter"
+      }
+      else if (winner =="XEN"){
+          winner="Rebbecca Sharkie"
+      }
+      else if(states[0].properties.div_nm == "Wentworth"){
+          winner="Allegra Spender"
+      }
+      else if(states[0].properties.div_nm == "Warringah"){
+          winner="Zali Steggall"
+      }
+      else if(states[0].properties.div_nm == "Clark"){
+          winner="Andrew Wilkie"
+      }
+      else if(states[0].properties.div_nm == "North Sydney"){
+          winner ="Kylea Tink"
+      }
+        else if(states[0].properties.div_nm == "Cowper"){
+          winner ="Caz Heise"
+      }
+        else if(states[0].properties.div_nm == "Groom"){
+          winner ="Suzie Holt"
+      }
+      else if(states[0].properties.div_nm == "Indi"){
+          winner ="Helen Haines"
+      }
+      else if(states[0].properties.div_nm == "Kooyong"){
+          winner ="Monique Ryan "
+      }
+      else if(states[0].properties.div_nm == "Fowler"){
+          winner ="Dai Le"
+      }
+      else if(states[0].properties.div_nm == "Goldstein"){
+          winner ="Zoe Daniels"
+      }
+      else if(states[0].properties.div_nm == "Curtin"){
+          winner ="Kate Chaney"
+      }
+      else if(states[0].properties.div_nm == "Calare"){
+          winner ="Kate Hook"
+      }
+      else if(states[0].properties.div_nm == "Mackellar"){
+          winner ="Sophie Scamps"
+      }
+      else if(states[0].properties.div_nm == "Nicholls"){
+          winner ="Rob Priestly"
+      }
+         
+      var loser = states[0].properties["Other Party"]
+      if (loser=="LP"){
+          loser = "the Liberals"
+      }
+      else if (loser =="NP"){
+          loser ="the Nationals"
+      }
+      else if (loser =="LNP"){
+          loser ="the LNP"
+      }
+      else if (loser =="CLP"){
+          loser ="the Country Liberals"
+      }
+      else if(loser=="ALP"){
+          loser ="Labor"
+      }
+      else if (loser =="GRN"){
+          loser ="The Greens"
+      }
+      else if (loser =="KAP"){
+          loser = "Bob Katter"
+      }
+        else if(loser == "ON"){
+          loser ="One Nation"
+      }
+         else if (loser =="XEN"){
+          loser="Rebbecca Sharkie"
+      }
+      else if(states[0].properties.div_nm == "Wentworth"){
+          loser="Allegra Spender"
+      }
+      else if(states[0].properties.div_nm == "Warringah"){
+          loser="Zali Steggall"
+      }
+      else if(states[0].properties.div_nm == "Clark"){
+          loser="Andrew Wilkie"
+      }
+      else if(states[0].properties.div_nm == "North Sydney"){
+          loser ="Kylea Tink"
+      }
+        else if(states[0].properties.div_nm == "Cowper"){
+          loser ="Caz Heise"
+      }
+        else if(states[0].properties.div_nm == "Groom"){
+          loser ="Suzie Holt"
+      }
+      else if(states[0].properties.div_nm == "Indi"){
+          loser ="Helen Haines"
+      }
+      else if(states[0].properties.div_nm == "Kooyong"){
+          loser ="Monique Ryan "
+      }
+      else if(states[0].properties.div_nm == "Fowler"){
+          loser ="Dai Le"
+      }
+      else if(states[0].properties.div_nm == "Goldstein"){
+          loser ="Zoe Daniels"
+      }
+      else if(states[0].properties.div_nm == "Curtin"){
+          loser ="Kate Chaney"
+      }
+      else if(states[0].properties.div_nm == "Calare"){
+          loser ="Kate Hook"
+      }
+      else if(states[0].properties.div_nm == "Mackellar"){
+          loser ="Sophie Scamps"
+      }
+      else if(states[0].properties.div_nm == "Nicholls"){
+          loser ="Rob Priestly"
+      }
+      document.getElementById('pd').innerHTML = '<p>We estimate that on a TCP basis in '+states[0].properties.div_nm+ ':</p><h3><strong><b>'+  votes + '% </b></strong> <i style="font-weight:50">of ' + states[0].properties.n_votes + '</i></h3><h4>votes in this area of '+ states[0].properties.SA2 + ' were for '+winner+' against '+loser+'</h4>';
   } else {
     document.getElementById('pd').innerHTML = '<p>Hover (or tap) somewhere with people!</p>';
   }
