@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139041146-2"></script>
+    
+<script data-ad-client="ca-pub-9169681462744843" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-139041146-2');
+gtag('set', {'user_id': 'USER_ID'}); // Set the user ID using signed-in user_id.
+  gtag('set', 'userId', 'USER_ID'); // Set the user ID using signed-in user_id.
+</script>
+   
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="icon" href="Ballot.png">
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>    <meta http-equiv="X-UA-Compatible" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Voice Referendum Results"> 
+    <meta name="title" content="How did we vote? - A detailed breakdown of Australia's electiona">
+    <meta name="description" content="An Incredily detailed series of maps detialing how australia voted, see how your community voted">
+    <meta name="author" content= "Jack Larkin">
+    <meta name="og:title" content="How did we vote? - A detailed breakdown of Australian Federal Elections">
+    <meta name="og:description" content="An Incredily detailed series of maps detialing how australia voted, see how your community voted">
+    <title>How did we vote?</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <script src = "papaparse.min.js"></script>
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <style>
+
+#map2323 { margin:5%; width:90%;height: 99% ; font: inherit;font-style: inherit;font-family: inherit;}
+</style>
+    
+    
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css' type='text/css' />
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+<style>
+.geocoder {
+
+z-index:2;
+width:40%;
+margin: 2%;
+margin-left:30%;
+}
+	mapboxgl-ctrl-geocoder mapboxgl-ctrl {height: 20%}
+.mapboxgl-ctrl-geocoder { min-width:100%;min-height: 100% }
+.mapboxgl-ctrl-bottom-left{margin-bottom: -28px}
+    .mapboxgl-ctrl-top-right{z-index: 11}
+    </style>
+    <style>
+.map-overlay {
+  position: absolute;
+  z-index: 3;
+  background: rgba(255, 255, 255, .9);
+}
+    
+</style>
+    <style>
+#menu {
+position: relative;
+background: rgba(255, 255, 255, 0.5);
+padding: 2px;
+top: 3.5%;
+left: 0;
+width: 422px;
+z-index: 111;
+};
+    </style>
+<style>
+    #top{
+    height: 80%;
+        width:100%;
+        background-position: center
+   </style> 
+<script>
+var imagesArray = [
+    "bg1.png",
+    "bg2.png",
+    "bg3.png",
+    "bg4.png",
+    "bg5.png",
+    "bg6.png",
+    "bg7.png",
+    "bg8.png",
+    "bg9.png",
+    "bg10.png",
+    "bg11.png",
+    "bg12.png",
+    "bg13.png",
+    "bg14.png",
+    "bg15.png",
+    "bg16.png",
+    "bg17.png",
+    "bg18.png",
+    "bg19.png",
+    "bg20.png",
+    "bg21.png",
+    "bg22.png",
+    "bg23.png"
+];
+
+function changeBackground(){
+    $("#top").css("background-image" , "url("+ imagesArray[parseInt(Math.random()*23)] +")");      
+};
+
+
+setInterval(changeBackground, 4000);
+</script>
+ <script>
+  $( document ).ready(function() {
+     $('#sel1').change(function() {
+    $('input:radio[name=rtoggle][value='+$(this).val()+']').click();
+}); 
+     var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+      var position = $("#map2323").position();
+        var info = parseFloat(position.top)
+    if (mobile) { 
+        $('.mapboxgl-ctrl-bottom-left').css('display', 'none');
+        $('#map2323').css('margin', '1%');
+        $('#map2323').css('width', '98%');// OR you can use $('.navWrap').hide();
+        $('#over').css('left', '1%');
+        $('#over').css('width', '98%');
+        
+        $('#over').css('top', info*1.02);
+        $('.geocoder').css('width', '70%');
+         $('.geocoder').css('margin-left', '15%');
+        $('#menu2').css('margin-left','1%')
+        $('#menu2').css('margin-right','1%')
+        
+    } 
+      else{
+          $('#over').css('left', '5%');
+           $('#over').css('top', info*1.09);
+           $('#over').css('padding-right', '.5%');
+           $('#over').css('border-radius', '3%');
+  
+
+      }
+       
+     });
+$(window).on('resize', function(){
+        var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+
+      var position = $("#map2323").position();
+        var info = parseFloat(position.top)
+    if (mobile) {
+      
+        $('#over').css('top', info*1.02);
+      
+        
+    } 
+      else{
+         $('#over').css('top', info*1.08);
+     
+
+      } 
+});
+
+
+  </script> 
+  
+</head>
+<body>
+      <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top" onclick=$("#menu-close").click();>How did we vote?</a>
+            </li>
+            <li>
+                <a href="index.html" onclick=$("#menu-close").click();>2022</a>
+            </li>
+            <li>
+                <b><a href="#top" onclick=$("#menu-close").click();>Voice Referendum</a></b>
+            </li>
+            <li>
+                <b><a href="2019.html" onclick=$("#menu-close").click();>2019</a></b>
+            </li>
+            <li>
+                <a href="#map2323" onclick=$("#menu-close").click();>Map</a>
+            </li>
+             <li>
+                <a href="#about" onclick=$("#menu-close").click();>About/How to</a>
+            </li>
+            <li>
+                <a href="#contact" onclick=$("#menu-close").click();><b>Contact</b></a>
+            </li>
+        </ul>
+    </nav>
+    <div class="header" id="top">
+        <div class="text-vertical-center">
+            <h1>How did <div id='geocoder' class='geocoder'></div> Vote?</h1>   
+            <a href="#map2323" class= "btn btn-dark btn-lg"><b>Start</b></a>
+    </div></div>
+
+
+ <div class='map-overlay' id="over"><h2></h2><div id='pd'><p></p></div></div>
+    <div id='map2323'> <div id='menu' style="display: none">
+        <b style="margin-right: 1%">Party:  </b>
+
+<label style="margin-left: 1%" for='cm3h3m02z006401sq9vsm3xuh'>Voice</label>
+        
+        
+</div></div>
+    
+
+       <script>
+    mapboxgl.accessToken = "pk.eyJ1IjoiamFja2dvcmRvbmxhcmtpbiIsImEiOiJjazMwbm4wbHMwMGFtM2lvZmUzazAyNjJxIn0.xU9xP1vsV4HrdIHDvvcrAg";
+
+    var map = new mapboxgl.Map({
+        container: 'map2323', // container id
+        style: 'mapbox://styles/jackgordonlarkin/cm3h3m02z006401sq9vsm3xuh', // replace with your style URL
+        maxZoom: 13.3,
+        minZoom: 3.6,
+        zoom: 4,
+        center: [133.7751, -25.2744],
+        maxBounds: [
+            [96.8, -43.7], // Southwest coordinates
+            [168.0, -9.2]  // Northeast coordinates
+        ]
+    });
+
+    // Add geolocation control
+    map.addControl(new mapboxgl.GeolocateControl({
+        positionOptions: { enableHighAccuracy: false },
+        trackUserLocation: true
+    }));
+
+    // Add geocoder control
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        countries: 'au',
+        mapboxgl: mapboxgl
+    });
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+
+    // Display information when hovering over the 'Voice' layer
+    map.on('mousemove', 'Voice', function(e) {
+        var states = map.queryRenderedFeatures(e.point, { layers: ['Voice'] });
+
+        if (states.length > 0 && parseInt(states[0].properties["Formal votes"]) > 0) {
+            var votes = parseFloat(states[0].properties["Winning %"]).toFixed(2);
+            var winner = states[0].properties["Winning Party"];
+            var votecount = parseFloat(states[0].properties["Formal votes"]).toFixed(0);
+            
+            document.getElementById('pd').innerHTML = `
+                <p>We estimate that on a TCP basis in ${states[0].properties.div_nm}:</p>
+                <h3><strong><b>${votes}% </b></strong> <i style="font-weight:50">of ${votecount}</i></h3>
+                <h4>votes in this area of ${states[0].properties.SA2} were for ${winner}</h4>
+            `;
+        } else {
+            document.getElementById('pd').innerHTML = '<p>Hover (or tap) somewhere with people!</p>';
+        }
+    });
+
+    // Reset information display when the mouse leaves the 'Voice' layer
+    map.on('mouseleave', 'Voice', function() {
+        document.getElementById('pd').innerHTML = '<p>Hover (or tap) somewhere with people!</p>';
+    });
+</script>
+
+<div class="col-md-12" id="about" style="padding-left:10%;padding-right: 10%;padding-bottom: 10%">
+    <h2><b>About/How to:</b></h2>
+    <br>
+    <h4>To navigate these maps you can zoom, scroll and search. If you are hovering over a location on a desktop it will display the information, alternatively if you on a mobile or tablet you need to tap on each location to find out the estimated vote share there. Colours correspond to each campaign's offical/defacto colour (Orange for No, Purple for Yes) with the deeper/darker the colour respresenting a higher vote share for that campaign in a particualr reason.</h4>
+    <h4>These highly detailed maps of the 2023 Voice Rerfdendum  are generated by ultilisting results from polling places as well as prepoll, absentee and postal votes (<a href="https://results.aec.gov.au/29581/Website/ReferendumDownloadsMenu-29581-Csv.htm">found here</a>), and data about where people in each area (SA1) voted (<a href="https://www.aec.gov.au/Elections/referendums/2023-downloads.htm">found here</a>, both data sets are from the Australian Electoral Commission). Estimates are generated by amalagmating the voting data across polling places and vote types to reflect where people in an individual area voted.</h4><h4> Each area represents a <i>Statistical Area 1 (SA1)</i> which represent somewhere between 100-1000 people (<i>not voters</i>), the larger outlined areas represent the 151 electoral divisions in existence at the 2022 election.</h4>
+    </div>
+    
+    <footer>
+        <div class="container" id="contact">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>HowdidweVote?</strong>
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:howdidwevote@gmail.com">howdidwevote@gmail.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy;Jack Larkin</p>
+                </div>
+            </div>
+        </div>
+        <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+    </footer>
+    <script src="js/bootstrap.min.js"></script>
+     <script>
+$("#menu-close").click(function(e){e.preventDefault();$("#sidebar-wrapper").toggleClass("active")});$("#menu-toggle").click(function(e){e.preventDefault();$("#sidebar-wrapper").toggleClass("active")});$(function(){$('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function(){if(location.pathname.replace(/^\//,'')==this.pathname.replace(/^\//,'')||location.hostname==this.hostname){var target=$(this.hash);target=target.length?target:$('[name='+this.hash.slice(1)+']');if(target.length){$('html,body').animate({scrollTop:target.offset().top},1000);return false}}})});var fixed=false;$(document).scroll(function(){if($(this).scrollTop()>250){if(!fixed){fixed=true;$('#to-top').show("slow",function(){$('#to-top').css({position:'fixed',display:'block'})})}}else{if(fixed){fixed=false;$('#to-top').hide("slow",function(){$('#to-top').css({display:'none'})})}}});
+    </script>
+</body>
+</html>
